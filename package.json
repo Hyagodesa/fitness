@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  },
+  "name": "fitnesse",
+  "description": "CRIAR UMA PLATAFORMA DE CALCULOS ESPECIFICOS PARA CADA MEMBRO",
+  "version": "1.0.0",
+  "main": "scr.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
