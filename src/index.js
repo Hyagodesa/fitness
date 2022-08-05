@@ -1,40 +1,32 @@
 const express = require('express')
+const morgan = require('morgan')
+const cors = require('cors')
+const bodyParser = require('body-prser')
+
+
 const app = express()
+
+app.use(morgan('dev'))
+app.use(bodyParser.urlencode({ extended: false }))
 app.use(express.json())
+app.use(cors())
 
 
-const cadastro = []
+let database = [
+    { '1': { nome: 'Cliente 1', idade: '20' } },
+    { '2': { nome: 'Cliente 2', idade: '20' } },
+    { '3': { nome: 'Cliente 3', idade: '20' } },
+]
 
+app.get('/', (req, resp) => {
+    return resp.json(database)
 
-
-app.get('/user/register', function (req, resp) {
-    const { name, email, senha } = req.body
-    cadastro.push({ name, email, senha })
-    return resp.json({ name, email, senha })
-})
-app.post('/', function (req, resp) {
-    const { name } = req.body.name
-    cadastro.push({ name })
-})
-
-
-
-app.get('/user/login', function (req, resp) {
-    const user = cadastro.find(function (u) {
-        return u.email === req.params.email
-    })
-    return resp.json(user)
 })
 
 
 
 
-
-
-
-
-
-
-
-
-app.listen(4800)
+app.listen(5888, () => {
+    
+}
+)
